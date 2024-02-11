@@ -14,7 +14,8 @@ const refs = {
     const image = e.target.elements.query.value;
   
     searchImage(image).then(data => {
-      renderImage(data);
+      console.log(data);
+      console.log(imageTemplate(data));
     });
   
     e.target.reset();
@@ -29,27 +30,27 @@ const refs = {
     return fetch(url).then(res => res.json());
   };
   
-  function imageTemplate(image) {
+  function imageTemplate({webformatURL, tags, likes, views,comments, downloads}) {
     return `<div class="image-card card">
     <div class="image-container">
       <img
-        src="${image.hits.webformatURL}"
-        alt="${image.hits.tags}"
+        src="${webformatURL}"
+        alt="${tags}"
         class="search-image"
       />
     </div>
     <div class="image-body">
-      <h4 class="image-info">${image.hits.likes}</h4>
-      <h4 class="image-info">${image.hits.views}</h4>
-      <h4 class="image-info">${image.hits.comments}</h4>
-      <h4 class="image-info"> ${image.hits.downloads}</h4>
+      <h4 class="image-info">${likes}</h4>
+      <h4 class="image-info">${views}</h4>
+      <h4 class="image-info">${comments}</h4>
+      <h4 class="image-info"> ${downloads}</h4>
     </div>
   </div>`;
   }
   
   function renderImage(image) {
     const markup = imageTemplate(image);
-    refs.imageEl.insertAdjacentHTML('afterbegin', markup);
+   console.log( refs.imageEl.insertAdjacentHTML('afterbegin', markup));
   }
 
 // const form = document.querySelector('.form-control');
