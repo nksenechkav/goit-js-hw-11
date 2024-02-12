@@ -1,16 +1,17 @@
-import"./assets/vendor-60237e46.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&i(c)}).observe(document,{childList:!0,subtree:!0});function s(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function i(e){if(e.ep)return;e.ep=!0;const t=s(e);fetch(e.href,t)}})();const n={formEl:document.querySelector('.js-search-form[data-id="js-search-image"]'),imageEl:document.querySelector(".js-image-container")};n.formEl.addEventListener("submit",o=>{o.preventDefault();const r=o.target.elements.query.value;a(r).then(s=>{console.log(s),console.log(l(s))}),o.target.reset()});function a(o){const r="https://pixabay.com",s="/api/",i=`?key=42271393-ceafa19bde7d0a63fb15d5d6f&q=${o}&image_type=photo&orientation=horizontal&safesearch=true`,e=r+s+i;return fetch(e).then(t=>t.json())}function l({webformatURL:o,tags:r,likes:s,views:i,comments:e,downloads:t}){return`<div class="image-card card">
-    <div class="image-container">
-      <img
-        src="${o}"
-        alt="${r}"
-        class="search-image"
-      />
-    </div>
-    <div class="image-body">
-      <h4 class="image-info">${s}</h4>
-      <h4 class="image-info">${i}</h4>
-      <h4 class="image-info">${e}</h4>
-      <h4 class="image-info"> ${t}</h4>
-    </div>
-  </div>`}
+import{i as c,S as u}from"./assets/vendor-5b791d57.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function a(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();const n={form:document.querySelector(".user-form"),formInput:document.querySelector(".form-input"),btn:document.querySelector(".form-button"),galleryList:document.querySelector(".gallery"),container:document.querySelector(".container"),loader:document.querySelector(".loader")};function d(t){return`<li class="gallery-item">
+          <a href="${t.largeImageURL}" class="gallery-link">
+            <img
+              src="${t.webformatURL}"
+              class="gallery-image"
+              alt="${t.tags}"
+            />
+          </a>
+          <div class="modal-text">
+          
+              <div class="modal-element"><p>Likes</p><span>${t.likes}</span></div>
+              <div class="modal-element"><p>Views</p><span>${t.views}</span></div>
+              <div class="modal-element"><p>Comments</p><span>${t.comments}</span></div>
+              <div class="modal-element"><p>Downloads</p><span>${t.downloads}</span></div>
+          </div>
+        </li>`}const m="Sorry, there are no images matching your search query. Please try again!";function l(){c.error({message:m,position:"topRight"})}function f(t){const o=t.hits.map(d).join("");t.hits.length?(n.galleryList.innerHTML=o,new u(".gallery a",{captionsData:"alt",captionPosition:"bottom",captionDelay:250}).refresh()):l()}function p(t){const o="42220995-e7901b62efa710cae16c4a0a7",s="https://pixabay.com/api/",a=`q=${t}&image_type=photo&orientation=horizontal&safesearch=true`,e=`${s}?key=${o}&${a}`;return fetch(e).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()})}function y(){n.loader.classList.remove("hidden")}function h(){n.loader.classList.add("hidden")}function g(t){t.preventDefault(),y(),n.galleryList.innerHTML="";const o=t.currentTarget.elements.input.value.trim();p(o).then(f).catch(l).finally(h),n.form.reset()}n.form.addEventListener("submit",g);
 //# sourceMappingURL=commonHelpers.js.map
