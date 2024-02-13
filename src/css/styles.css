@@ -38,12 +38,15 @@ body {
   align-items: center;
 }
 
-.user-form {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.search-form {
+  padding-top: 30px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 .gallery {
+  padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -71,8 +74,9 @@ li {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-image:hover {
-  border: 1px solid blue;
+.gallery-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .modal-img {
@@ -80,7 +84,7 @@ li {
   height: 640px;
 }
 
-button {
+.search-button {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 500;
@@ -89,21 +93,20 @@ button {
   padding: 8px 16px;
   border-radius: 8px;
   background-color: #4e75ff;
-  margin-top: 8px;
   color: #fff;
   border: none;
+  width: 91px;
+  height: 40px;
   cursor: pointer;
 }
 
-button:hover {
+.search-button:hover {
   background: #6c8cff;
 }
 
-input {
-  width: 360px;
+.form-input {
+  width: 272px;
   height: 40px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   border-radius: 4px;
   border: 1px solid #808080;
   color: #2e2f42;
@@ -113,7 +116,7 @@ input {
   padding-left: 16px;
 }
 
-input:hover {
+.form-input:hover {
   border: 1px solid #000;
 }
 

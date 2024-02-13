@@ -7,8 +7,7 @@ export function addMarkup(image) {
               alt="${image.tags}"
             />
           </a>
-          <div class="modal-text">
-          
+          <div class="modal-text"> 
               <div class="modal-element"><p>Likes</p><span>${image.likes}</span></div>
               <div class="modal-element"><p>Views</p><span>${image.views}</span></div>
               <div class="modal-element"><p>Comments</p><span>${image.comments}</span></div>

@@ -1,5 +1,5 @@
 export function fetchImg(input) {
-    const API_KEY = '42220995-e7901b62efa710cae16c4a0a7';
+    const API_KEY = '42271393-ceafa19bde7d0a63fb15d5d6f';
     const BASE_URL = 'https://pixabay.com/api/';
     const parameters = `q=${input}&image_type=photo&orientation=horizontal&safesearch=true`;
     const URL = `${BASE_URL}?key=${API_KEY}&${parameters}`;
